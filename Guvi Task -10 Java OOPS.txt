@@ -1,0 +1,368 @@
+Program - 1
+=================================================================================================
+package com.guvi.Task10;
+
+public class Person {
+
+	private String name;
+	private int age;
+	
+	public Person()
+	{
+		
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Person person = new Person();
+		person.setName("Karthi");
+		person.setAge(25);
+		
+		System.out.println("Name of the Person: "+ person.getName());
+		System.out.println("Age of Person: "+ person.getAge());
+	}
+}
+=================================================================================================
+Output:
+Name of the Person: Karthi
+Age of Person: 25
+=================================================================================================
+Program - 2
+=================================================================================================
+package com.guvi.task10;
+
+public class Employee {
+	
+	int id;
+	String firstName;
+	String lastName;
+	int salary;
+	
+	Employee(int id, String firstname, String lastname, int salary)
+	{
+		this.id = id;
+		this.firstName = firstname;
+		this.lastName = lastname;
+		this.salary = salary;			
+	}
+	public void raiseSalary(int percent)
+	{
+		salary = salary + (salary * percent / 100);
+		
+	}
+}
+
+//Another class is created for calling method of raiseSalary()
+
+package com.guvi.task10;
+
+public class EmployeeCall extends Employee{
+
+	EmployeeCall(int id, String firstname, String lastname, int salary) {
+		super(id, firstname, lastname, salary);
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getid(int id) {
+		return id;
+	}
+	
+	public String getfirstname(String firstname) {
+		return firstname;
+		
+	}
+	
+	public String getlastname(String lastname) {
+		return lastname;
+		
+	}
+	
+	public String getName() {
+		return(firstName + " " + lastName);
+	}
+	
+	public int getsalary(int salary){
+		//System.out.println(salary);
+		return salary;
+		
+	}
+	
+	public void setsalay(int salary) {
+		this.salary = salary;
+	}
+	
+	public int getAnnualsalary() {
+		return (salary * 12);
+	}
+	
+	public String toString() {
+		
+		//System.out.println(id + " " + firstName + " " + lastName + " " + salary );
+		return (id + " " + getName() + " " + salary);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		EmployeeCall obj = new EmployeeCall(1021006, "Karthi", "Kumar", 1000);
+		
+		System.out.println("Employee Id: "+obj.getid(1021006));
+		System.out.println("Name of the employee: "+ obj.getName());
+		System.out.println("Salary of the employee: "+ obj.getsalary(1000));
+		obj.raiseSalary(50);
+		System.out.println("Annual New salary of the employeed: "+obj.getAnnualsalary());
+		System.out.println(obj.toString());
+	}
+
+}
+
+=================================================================================================
+Output:
+
+Employee Id: 1021006
+Name of the employee: Karthi Kumar
+Salary of the employee: 1000
+Annual New salary of the employeed: 18000
+1021006 Karthi Kumar 1500
+
+=================================================================================================
+Program - 3
+=================================================================================================
+package com.guvi.Task10;
+
+public class circle {
+
+	int radius;
+	float result, pi;
+	
+	public circle() 
+	{
+		pi = 3.14f;
+		radius = 0;
+		
+	}
+	public circle(int a , float b ) {
+		
+		radius = a;
+		pi = b;
+	}
+	public void cal_circumference() {
+		
+		result= 2 * pi * radius;
+		System.out.println(result);
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		circle cir = new circle(3, 3.14f); //Circumference is 3
+		cir.cal_circumference();
+	}
+}
+=================================================================================================
+Output:
+18.84
+=================================================================================================
+Program - 4
+=================================================================================================
+package com.others.learning;
+
+public class Account {
+
+		String holderName = "Karthi";
+		long accountNumber = 12345678900l;
+		int balance;
+		int amount_withdraw, amount_deposit;
+		
+		Account() {
+			
+			balance = 0;
+		}
+		
+	    Account(int add_amt, int sub_amt) {
+			
+			//balance = bal;
+			amount_deposit = add_amt;
+			amount_withdraw = sub_amt;
+		}
+	    
+	    public int deposit()
+	    {
+	    	balance = balance + amount_deposit;
+	    	return balance;
+	    }
+	    
+	    public int withdraw()
+	    {
+	    	balance = balance - amount_withdraw;
+	    	return balance;
+	    }
+		public static void main(String[] args) {
+			Account account = new Account(1500, 200);
+			System.out.println("Inital Available Account Balance : " + account.balance);
+			account.deposit();
+			System.out.println("Balance After Deposit : " + account.balance);
+			account.withdraw();
+			System.out.println("Balance After Withdraw : " + account.balance);
+		}
+	}
+=================================================================================================
+Output:
+Inital Available Account Balance : 0
+Balance After Deposit : 1500
+Balance After Withdraw : 1300
+=================================================================================================
+Program - 5
+=================================================================================================
+package com.guvi.task10;
+
+public class Tea {
+
+	//Here Just three methods are created
+	public void prepareTea()
+	{
+		System.out.println("Add hot water and Tea leaf boil for 2 mins");
+	}
+	
+	public void addMilk()
+	{
+		System.out.println("And Add milk");
+	}
+	
+	public void addSugar()
+	{
+		System.out.println("Then Add Sugar");
+	}
+}
+=================================================================================================
+Output:
+No output
+=================================================================================================
+Program - 6
+=================================================================================================
+package com.guvi.task10;
+
+public class GreenTea extends Tea{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		GreenTea obj = new GreenTea();
+		obj.prepareTea();
+		obj.addMilk();
+		obj.addSugar();
+	}
+	public void prepareTea()
+	{
+		System.out.println("Add hot water and Green Tea bag boil for 2 mins");
+	}
+}
+=================================================================================================
+Output:
+
+Add hot water and Green Tea bag boil for 2 mins
+And Add milk
+Then Add Sugar
+
+=================================================================================================
+package com.guvi.task10;
+
+public class BlackTea extends Tea{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		BlackTea obj = new BlackTea();
+		obj.prepareTea();
+		obj.addMilk();
+		obj.addSugar();
+	}
+
+	public void prepareTea()
+	{
+		System.out.println("Add hot water and Black Tea leaf boil for 3 mins");
+	}
+}
+=================================================================================================
+Output:
+
+Add hot water and Black Tea leaf boil for 3 mins
+And Add milk
+Then Add Sugar
+
+=================================================================================================
+package com.guvi.task10;
+
+public class HerbalTea extends Tea {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		HerbalTea obj = new HerbalTea();
+		obj.prepareTea();
+		obj.addMilk();
+		obj.addSugar();
+		
+	}
+
+	public void prepareTea()
+	{
+		System.out.println("Add hot water and Hearbal Tea bag boil for 4 mins");
+	}
+}
+=================================================================================================
+Output:
+Add hot water and Hearbal Tea bag boil for 4 mins
+And Add milk
+Then Add Sugar
+
+=================================================================================================
+Program - 7
+=================================================================================================
+package com.guvi.task10;
+
+public class MainTeaClass {
+
+	public static void main(String[] args) {
+		
+		Tea teaobj[] = new Tea[3];
+		teaobj[0] = new BlackTea();
+		teaobj[1] = new GreenTea();
+		teaobj[2] = new HerbalTea();
+		
+		for (Tea tea : teaobj) {
+			
+			tea.prepareTea();
+			tea.addMilk();
+			tea.addSugar();
+			System.out.println();
+		}
+	}
+}
+=================================================================================================
+Output:
+Add hot water and Black Tea leaf boil for 3 mins
+And Add milk
+Then Add Sugar
+
+Add hot water and Green Tea bag boil for 2 mins
+And Add milk
+Then Add Sugar
+
+Add hot water and Hearbal Tea bag boil for 4 mins
+And Add milk
+Then Add Sugar
+
